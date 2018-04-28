@@ -1,0 +1,67 @@
+vendor system
+
+Admin
+ 	admin_id,name,email,password,phoneno
+
+/*
+1.Company
+	company_id(PK),company_name,company_address,email
+*/
+
+2.Agent
+	agent_id(PK),name,city,state,street,zip,classification,phno(landline and cell),company_name,[notes_flag],status
+
+
+3.Carrier(supplier)
+	carrier_id(PK),name,city,state,street,zip,classification,phno(landline,cell),company_name,rate_id,status
+
+4.Customer
+	customer_id(PK),name,email,contact,address
+
+5.Store
+		store_id(PK),store_number,address,city,zip
+
+6. Project
+	project_id(PK),project_name,quote_number,customer_id(FK-customer),store_id(FK-Store),agent_id(FK-agent)
+
+7.Contact
+	contact_id(PK),fname,lname,phno,email,contact_type,,message,agent_carrier_id,(FK)
+
+->company_id(FK-Company)
+8.warehouse
+	warehouse_id(PK),name,address,city,state,zip,primary,agent_id(FK-agent),rate_id
+
+9.Services
+	service_id(PK),sname
+
+10.Equipment
+	equip_id(PK),name
+
+11.Rate
+	rate_id(PK),expiration_date,agentconform_rate,agentapproval_name,one_man_ST,one_man_OT,one_man_DT,two_man_ST,two_man_OT,two_man_DT,extra_man_ST,extra_man_OT,extra_man_DT,warehouse_ST,warehouse_OT,warehouse_DT,storage_sq_ft,storage_per_cwt,storage_min,warehouse_hand_in,warehouse_hand_min,FSC,comments,agent_id(FK-agent)
+
+13.Payment
+	payment_id(PK),coi,payment_terms
+
+->payement_mode,customer_id
+
+14.agent_service
+	agent_service_id(PK),service_id(FK-service),agent_id(FK-agent)
+
+15.carrier_service
+	carrier_Service_id(PK),service_id(FK-service),carrier_id(FK-carrier)
+
+16.carrier_equipment
+	carrier_equipment(PK),equipment_id(FK-equipment),carrier_id(FK-Ccarrier)
+
+16.attachments 
+	attachment_id(PK),attachment_message,attachment_name,agent_carrier_id(FK-agent)
+
+17.notes
+	notes_id,text,timestamp,agent_id
+------------------------------------------------------------------
+
+
+Reviews vendor information
+
+
